@@ -33,12 +33,6 @@ public class PubServiceMongo implements PubService {
 
     @Override
     public List<PubDto> findAll() {
-        List<PubDoc> pubs = pubRepository.findAll();
-        for (PubDoc p : pubs) {
-            PubDto dto = pubMapper.toDto(p);
-            int i = 0;
-        }
-
         return pubRepository.findAll().stream()
                 .map(pubMapper::toDto)
                 .collect(Collectors.toList());
